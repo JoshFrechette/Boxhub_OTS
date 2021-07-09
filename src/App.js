@@ -81,10 +81,10 @@ function App() {
   };
 
   return (
-    <div>
+    <div style={{ padding: 20 }}>
       <Grid container xs={12}>
         <Header />
-        <Grid container item xs={12}>
+        <Grid container item xs={12} style={{ backgroundColor: '#fafafa', padding: 10 } }>
           <Typography variant="h4">Filter Orders</Typography>
           <Grid
             item
@@ -93,7 +93,7 @@ function App() {
             xs={12}
             style={{ padding: 20, marginBottom: 20 }}
           >
-            <Grid item xs={3}>
+            <Grid item xs={6} md={3} style={{ marginTop: 5 }}>
               <FormControl component="fieldset">
                 <FormLabel component="legend">Status</FormLabel>
                 <RadioGroup
@@ -121,7 +121,7 @@ function App() {
                 </RadioGroup>
               </FormControl>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={6} md={3} style={{ marginTop: 5 }}>
               {/* <Typography>Size</Typography> */}
               <FormControl component="fieldset">
                 <FormLabel component="legend">Size</FormLabel>
@@ -150,7 +150,7 @@ function App() {
                 </RadioGroup>
               </FormControl>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={6} md={3} style={{ marginTop: 5 }}>
               {/* <Typography>Condition</Typography> */}
               <FormControl component="fieldset">
                 <FormLabel component="legend">Condition</FormLabel>
@@ -179,7 +179,7 @@ function App() {
                 </RadioGroup>
               </FormControl>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={6} md={3} style={{ marginTop: 5 }}>
               {/* <Typography>Type</Typography> */}
               <FormControl component="fieldset">
                 <FormLabel component="legend">Type</FormLabel>
@@ -205,7 +205,7 @@ function App() {
             </Grid>
           </Grid>
         </Grid>
-        <Grid container item xs={12}>
+        <Grid container item xs={12} style={{ marginTop: 20, padding: 20 }}>
           {filteredOrders.length > 0 ? (
             filteredOrders.map((order) => {
               return <OrderCard order={order} />;

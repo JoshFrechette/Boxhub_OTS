@@ -4,7 +4,9 @@ import {
   Typography, 
   Paper,
   Button,
+  Icon,
  } from "@material-ui/core";
+ import RoomIcon from '@material-ui/icons/Room';
 import useStyles from "./OrderCardStyles";
 
 import { MapContext } from '../MapContext/MapContext';
@@ -82,7 +84,7 @@ const OrderCard = ({ order }) => {
       >
         <Paper elevation={2} className={classes.card}>
           <Typography>ID: {id}</Typography>
-          <Grid item xs={12}>
+          <Grid container item xs={12}>
             {picURLValid ? (
               <img
                 alt={`container-${type}`}
@@ -92,17 +94,29 @@ const OrderCard = ({ order }) => {
             ) : (
               <SubImage />
             )}
+            <Grid item xs={6} style={{ backgroundColor: '#fab32f', padding: 2 }}>
+              <Typography variant='body2'>Condition: {condition}</Typography>
+              <Typography variant='body2'>Type: {type}</Typography>
+              <Typography variant='body2'>Size: {size}</Typography>
+            </Grid>
+            <Grid item xs={6} style={{ padding: 2 }}>
+              <Typography variant='body2'> Customer: {customer}</Typography>
+            <Typography variant='body2'>Status: {status}</Typography>
+            <Typography variant='body2'> SKU: {sku}</Typography>
+            <Typography variant='body2'>Created: {created}</Typography>
+              </Grid>
+            <Grid container item display='flex' xs={12} justifyContent='center' style={{ marginTop: 10 }}>
+              <Button
+                variant='contained'
+                color='primary'
+                fullWidth
+                onClick={() => handleOpenMapModal()}
+              >
+                Delivery Map
+                  <RoomIcon />
+              </Button>
+            </Grid>
 
-            <Typography>Customer: {customer}</Typography>
-            <Typography>Status: {status}</Typography>
-            <Typography>SKU: {sku}</Typography>
-            <Typography>Condition: {condition}</Typography>
-            <Typography>Size: {size}</Typography>
-            <Typography>Created: {created}</Typography>
-            <Button
-              onClick={() => handleOpenMapModal()}
-            >Delivery Map
-            </Button>
           </Grid>
         </Paper>
       </Grid>
