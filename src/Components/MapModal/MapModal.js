@@ -1,4 +1,4 @@
-import React, {useContext } from 'react';
+import React, { useContext } from 'react';
 import {
     Typography,
     Grid,
@@ -6,25 +6,31 @@ import {
 } from '@material-ui/core';
 import { MapContext } from '../MapContext/MapContext';
 
-const MapModal = (origin, destination) => {
-    const setOpen = useContext(MapContext);
-    // const [dispatch] = useMapContext();
+const MapModal = () => {
+    const { open, origin, destination } = useContext(MapContext);
+    const [stateOpen, setStateOpen] = open;
+    const [stateOrigin, setStateOrigin] = origin;
+    const [stateDestination, setStateDestination] = destination;
 
-    const closeModal = () => {
-        setOpen(false);
+    const closeModal = (e) => {
+        e.preventDefault();
+        setStateOpen(false);
     };
 
     return (
         <Grid>
              <Typography>MAP!</Typography>
+             <Typography>{stateOrigin}</Typography>
+             <Typography>{stateDestination}</Typography>
+
              <Button
-              onClick={() => closeModal()}
+              onClick={(e) => closeModal(e)}
              >
                  Close Me
              </Button>
         </Grid>
 
-    )
+    );
 
 };
 

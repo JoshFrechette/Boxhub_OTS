@@ -3,12 +3,12 @@ import React, { createContext, useReducer, useContext, useState} from 'react';
 export const MapContext = createContext();
 
 export const MapModalProvider = (props) => {
-    const [open, setOpen] = useState(true);
-    const [origin, setOrigin] = useState('');
-    const [destination, setDestination] = useState('');
+    const [open, setOpen] = useState(false);
+    const [origin, setOrigin] = useState('here');
+    const [destination, setDestination] = useState('there');
 
     return (
-        <MapContext.Provider open={open} origin={origin} destination={destination}>
+        <MapContext.Provider value={{open: [open, setOpen], origin: [origin, setOrigin], destination: [destination, setDestination]}} >
             {props.children}
         </MapContext.Provider>
     );

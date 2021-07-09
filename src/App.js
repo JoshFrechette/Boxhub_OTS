@@ -18,15 +18,13 @@ import orders from "./Components/Utils/orders.json";
 // imported utils
 import sortedOrders from './Components/Utils/orderSort';
 // import context
-import { MapModalProvider, MapContext } from './Components/MapContext/MapContext';
+import { MapContext } from './Components/MapContext/MapContext';
 
 
 function App() {
   // const [state, dispatch] = useMapContext();
-  const open = useContext(MapContext);
-  const origin = useContext(MapContext);
-  const destination = useContext(MapContext);
-  console.log(open, origin, destination)
+  const { open } = useContext(MapContext);
+  const [stateOpen, setStateOpen] = open;
   const boxOrders = orders.orders;
   const [statusFilter, setStatusFilter] = useState("");
   const [sizeFilter, setSizeFilter] = useState("");
@@ -83,7 +81,6 @@ function App() {
   };
 
   return (
-    // <MapModalProvider>
     <div>
       <Grid container xs={12}>
         <Header />
@@ -221,15 +218,14 @@ function App() {
         </Grid>
       </Grid>
       <Dialog
-        open={open}
+        open={stateOpen}
       >
             <MapModal
-              origin={origin}
-              destination={destination}
+              // origin={value.origin}
+              // destination={value.destination}
             />
       </Dialog>
     </div>
-    // </MapModalProvider>
   );
 }
 

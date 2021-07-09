@@ -11,7 +11,6 @@ ReactDOM.render(
       <App />
     </React.StrictMode>
   </MapModalProvider>
-
   ,
   document.getElementById('root')
 );

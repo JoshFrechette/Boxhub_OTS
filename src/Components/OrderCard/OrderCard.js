@@ -1,9 +1,20 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Grid, Typography, Paper } from "@material-ui/core";
+import React, { useState, useEffect, useContext } from "react";
+import { 
+  Grid, 
+  Typography, 
+  Paper,
+  Button,
+ } from "@material-ui/core";
 import useStyles from "./OrderCardStyles";
+
+import { MapContext } from '../MapContext/MapContext';
 
 const OrderCard = ({ order }) => {
   const [picURLValid, setPicURLValid] = useState(false);
+  const { open, origin, destination } = useContext(MapContext);
+  const [stateOpen, setStateOpen] = open;
+  const [stateOrigin, setStateOrigin] = origin;
+  const [stateDestination, setStateDestination] = destination;
 
   const {
     id,
@@ -26,6 +37,12 @@ const OrderCard = ({ order }) => {
   }
 
   // console.log("url check: ",checkURL(photo))
+
+  const handleOpenMapModal = () => {
+    setStateOpen(true);
+    setStateOrigin(origin_address);
+    setStateDestination(shipping_address);
+  };
 
   useEffect(() => {
     let mounted = true;
@@ -82,7 +99,10 @@ const OrderCard = ({ order }) => {
             <Typography>Condition: {condition}</Typography>
             <Typography>Size: {size}</Typography>
             <Typography>Created: {created}</Typography>
-            <Typography>Delivery Map</Typography>
+            <Button
+              onClick={() => handleOpenMapModal()}
+            >Delivery Map
+            </Button>
           </Grid>
         </Paper>
       </Grid>
