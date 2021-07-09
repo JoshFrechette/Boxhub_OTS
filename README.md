@@ -3,7 +3,7 @@
 
 ## Purpose
 
-This is 
+This is a hypothetical Order Tracking System as a coding tech assignemnt for BoxHub. It was given three (3) goals.
 
 1. Show to the user all orders sorted by creation date, showing the photo and some information nearby.
 
