@@ -1,5 +1,7 @@
 import React, { createContext, useReducer, useContext, useState} from 'react';
 
+// Manage global state for the mapmodal across the app and its components
+
 export const MapContext = createContext();
 
 export const MapModalProvider = (props) => {
@@ -13,35 +15,3 @@ export const MapModalProvider = (props) => {
         </MapContext.Provider>
     );
 }
-
-
-// const { Provider } = MapContext;
-
-// const mapReducer = (state, action) => {
-//     console.log("state: ", state)
-//     const modalOpen = state.open;
-//     const mapOrigin = state.origin;
-//     const mapDestination = state.origin;
-//     console.log("Modal State: ", modalOpen, mapOrigin, mapDestination)
-// };
-
-// const MapModalProvider = ({
-//     value = {
-//         modal: {
-//             open: false,
-//             origin: '',
-//             destination: '',
-//         },
-//     },
-//     ...props
-// }) => {
-//     const [state, dispatch] = useReducer(mapReducer, {...value });
-
-//     return <Provider value={[state, dispatch]} {...props} />;
-// };
-
-// const useMapContext = () => {
-//     return useContext(MapContext);
-// };
-
-// console.log(MapModalProvider)

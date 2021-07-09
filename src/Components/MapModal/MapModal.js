@@ -18,6 +18,7 @@ const MapModal = () => {
   const [destinationLongLat, setDestinationLongLat] = useState("");
 
   Geocode.setApiKey("AIzaSyCPN0kq4muE4BNkZ6GuqJP1O_L5iXPldsw&");
+  
   useEffect(() => {
     let mounted = true;
     if (mounted) {

@@ -4,7 +4,6 @@ import {
   Typography, 
   Paper,
   Button,
-  Icon,
  } from "@material-ui/core";
  import RoomIcon from '@material-ui/icons/Room';
 import useStyles from "./OrderCardStyles";
@@ -32,13 +31,11 @@ const OrderCard = ({ order }) => {
     shipping_address,
   } = order;
 
-  // console.log(photo, " : photo");
+// A regex checker for validating image urls
 
   function checkURL(url) {
     return url.match(/\.(jpeg|jpg|gif|png)$/) != null;
   }
-
-  // console.log("url check: ",checkURL(photo))
 
   const handleOpenMapModal = () => {
     setStateOpen(true);
@@ -49,7 +46,6 @@ const OrderCard = ({ order }) => {
   useEffect(() => {
     let mounted = true;
     if (mounted) {
-      // if (checkURL(photo)) setPicURLValid(true);
       setPicURLValid(checkURL(photo));
     }
     return () => {
@@ -57,6 +53,8 @@ const OrderCard = ({ order }) => {
     };
   }, [photo, order]);
 
+
+// Image alternate if image url does not pass checker
   const SubImage = () => {
     return (
       <>

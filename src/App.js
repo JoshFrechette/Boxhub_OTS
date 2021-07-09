@@ -32,6 +32,8 @@ function App() {
   const [typeFilter, setTypeFilter] = useState("");
   const [filteredOrders, setFilteredOrders] = useState("");
 
+
+  // If there any filter changes, update the cards being rendered
   useEffect(() => {
     let mounted = true;
     if (mounted) {
@@ -64,6 +66,8 @@ function App() {
     };
   }, [boxOrders, statusFilter, conditionFilter, typeFilter, sizeFilter]);
 
+
+// Handle the changing values from the filter UI
   const handleStatusChange = (event) => {
     setStatusFilter(event.target.value);
   };
