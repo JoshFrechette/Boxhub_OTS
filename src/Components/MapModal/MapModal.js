@@ -9,6 +9,10 @@ import {
 } from "react-google-maps";
 import Geocode from "react-geocode";
 
+// Get hidden Key value
+import dotenv from 'dotenv';
+dotenv.config();
+
 const MapModal = () => {
   const { open, origin, destination } = useContext(MapContext);
   const [stateOpen, setStateOpen] = open;
@@ -16,12 +20,21 @@ const MapModal = () => {
   const [stateDestination, setStateDestination] = destination;
   const [originLongLat, setOriginLongLat] = useState("");
   const [destinationLongLat, setDestinationLongLat] = useState("");
+  const apiKey = process.env.REACT_APP_APIKEY;
 
-  Geocode.setApiKey("AIzaSyCPN0kq4muE4BNkZ6GuqJP1O_L5iXPldsw&");
+  const mapURL = "https://maps.googleapis.com/maps/api/js?key=" + apiKey + "&libraries=places";
   
   useEffect(() => {
     let mounted = true;
     if (mounted) {
+      fetch(process.env.REACT_APP_APIKEY)
+        .then((response) => {
+          return response.json();
+        })
+        .then((key) => {
+          // setApiKey(key);
+        });
+
       Geocode.fromAddress(stateOrigin).then(
         (response) => {
           const { lat, lng } = response.results[0].geometry.location;
@@ -86,8 +99,7 @@ const MapModal = () => {
     <Grid container item xs={12} style={{ minHeight: 400, minWidth: 700 }}>
       <Grid id="map" item style={{ height: "100vh", width: "100%" }}>
         <AsyncMap
-          googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPN0kq4muE4BNkZ6GuqJP1O_L5iXPldsw&libraries=places"
-          // googleMapURL="https://maps.googleapis.com/maps/api/directions/json?origin=Toronto&destination=Montreal&key=AIzaSyCPN0kq4muE4BNkZ6GuqJP1O_L5iXPldsw&libraries=places"
+          googleMapURL={mapURL}
           loadingElement={<div style={{ height: `100%` }} />}
           containerElement={<div style={{ height: `80%`, width: "100%" }} />}
           mapElement={<div style={{ height: `100%`, width: "100%" }} />}
