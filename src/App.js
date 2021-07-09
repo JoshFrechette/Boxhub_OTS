@@ -205,7 +205,7 @@ function App() {
             </Grid>
           </Grid>
         </Grid>
-        <Grid container item xs={12} style={{ marginTop: 20, padding: 20 }}>
+        <Grid container item xs={12} display='flex' style={{ marginTop: 20, padding: 20 }} justifyContent='space-around'>
           {filteredOrders.length > 0 ? (
             filteredOrders.map((order) => {
               return <OrderCard order={order} />;

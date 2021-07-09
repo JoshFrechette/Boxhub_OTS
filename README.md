@@ -13,7 +13,9 @@ This is
 
 ## Deployment
 
-Clone the repo at `https://github.com/JoshFrechette/Boxhub_OTS.git`
+Assuming the user is using software like VisualCode or Atom, do the following.
+
+Clone the repo at `https://github.com/JoshFrechette/Boxhub_OTS.git` and open the project.
 
 Install the necessary packages `npm i @material-ui/core @material-ui/icons react-google-maps`
 
@@ -21,10 +23,33 @@ Run `npm start`
 
 ## How to use
 
-<div align="center">
-  <img src="../src/Assets/images/logo.png" />
-</div>
+The user can filter the order cards by staus, size, condition, and type. 
 
 <div align="center">
-  <img src="../src/Assets/images/logo.png" />
+  <img src="src/Assets/BoxHubFilter.png" />
 </div>
+
+Each order card displays all of the relevant order information.
+
+<div align="center">
+  <img src="src/Assets/BoxHubOrderCards.png" />
+</div>
+
+On clicking the 'Delivery Map' button, a map modal will appear with directions for the delivery.
+
+<div align="center">
+  <img src="src/Assets/BoxHubMap.png />
+</div>
+
+## Technologies Used
+
+javascript library/framework: ReactJS
+
+CSS Framework: Material-UI
+
+libraries/modules:
+- react-google-maps
+
+## Known Issues
+
+At the moment, the map modal for providing delivery directions does not work. The source of the issue lies primarily in being denied permssion from the GoogleAPI, but also finding a good library for converting traditional addresses into {lat, long} coordinates for React. 
