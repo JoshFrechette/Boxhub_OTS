@@ -3,11 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { MapModalProvider } from './Components/MapContext/MapContext';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <MapModalProvider>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </MapModalProvider>
+
+  ,
   document.getElementById('root')
 );
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   Grid,
   Typography,
@@ -7,16 +7,26 @@ import {
   FormControlLabel,
   FormControl,
   FormLabel,
+  Dialog,
 } from "@material-ui/core";
 // imported components
 import Header from "./Components/Header/header";
 import OrderCard from "./Components/OrderCard/OrderCard";
+import MapModal from "./Components/MapModal/MapModal";
 // imported data
 import orders from "./Components/Utils/orders.json";
 // imported utils
 import sortedOrders from './Components/Utils/orderSort';
+// import context
+import { MapModalProvider, MapContext } from './Components/MapContext/MapContext';
+
 
 function App() {
+  // const [state, dispatch] = useMapContext();
+  const open = useContext(MapContext);
+  const origin = useContext(MapContext);
+  const destination = useContext(MapContext);
+  console.log(open, origin, destination)
   const boxOrders = orders.orders;
   const [statusFilter, setStatusFilter] = useState("");
   const [sizeFilter, setSizeFilter] = useState("");
@@ -73,6 +83,7 @@ function App() {
   };
 
   return (
+    // <MapModalProvider>
     <div>
       <Grid container xs={12}>
         <Header />
@@ -209,7 +220,16 @@ function App() {
           )}
         </Grid>
       </Grid>
+      <Dialog
+        open={open}
+      >
+            <MapModal
+              origin={origin}
+              destination={destination}
+            />
+      </Dialog>
     </div>
+    // </MapModalProvider>
   );
 }
 
