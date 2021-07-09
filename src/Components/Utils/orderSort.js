@@ -1,9 +1,6 @@
   const sortedOrders = (orders) => {
-    const orderArr = orders.orders;
-    orderArr.sort( function(a, b) {
-      return a.created - b.created;
-    });
-    return orderArr;
+    const sortedArray = orders.sort((a,b) => (a.created < b.created ? 1 : -1));
+    return sortedArray;
   };
 
 export default sortedOrders;

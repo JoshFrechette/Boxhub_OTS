@@ -13,6 +13,8 @@ import Header from "./Components/Header/header";
 import OrderCard from "./Components/OrderCard/OrderCard";
 // imported data
 import orders from "./Components/Utils/orders.json";
+// imported utils
+import sortedOrders from './Components/Utils/orderSort';
 
 function App() {
   const boxOrders = orders.orders;
@@ -47,7 +49,7 @@ function App() {
           (order) => order.type === typeFilter
         );
       }
-      setFilteredOrders(filteredOrderArray);
+      setFilteredOrders(sortedOrders(filteredOrderArray));
     }
     return () => {
       mounted = false;

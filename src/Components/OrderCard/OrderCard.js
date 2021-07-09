@@ -30,7 +30,8 @@ const OrderCard = ({ order }) => {
   useEffect(() => {
     let mounted = true;
     if (mounted) {
-      if (checkURL(photo)) setPicURLValid(true);
+      // if (checkURL(photo)) setPicURLValid(true);
+      setPicURLValid(checkURL(photo));
     }
     return () => {
       mounted = false;
