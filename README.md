@@ -31,15 +31,15 @@ The user can filter the order cards by staus, size, condition, and type.
 
 Each order card displays all of the relevant order information.
 
-<div align="center">
+<!-- <div align="center" width='50%'>
   <img src="src/Assets/BoxHubOrderCards.png" />
-</div>
+</div> -->
 
 On clicking the 'Delivery Map' button, a map modal will appear with directions for the delivery.
 
-<div align="center">
+<!-- <div align="center">
   <img src="src/Assets/BoxHubMap.png />
-</div>
+</div> -->
 
 ## Technologies Used
 
