@@ -18,8 +18,14 @@ const MapModal = () => {
   const [stateOpen, setStateOpen] = open;
   const [stateOrigin, setStateOrigin] = origin;
   const [stateDestination, setStateDestination] = destination;
-  const [originLongLat, setOriginLongLat] = useState("");
-  const [destinationLongLat, setDestinationLongLat] = useState("");
+  const [originLongLat, setOriginLongLat] = useState({coordinates: {
+    long: '',
+    lat: '',
+  }});
+  const [destinationLongLat, setDestinationLongLat] = useState({coordinates: {
+    long: '',
+    lat: '',
+  }});
   const apiKey = process.env.REACT_APP_APIKEY;
 
   const mapURL = "https://maps.googleapis.com/maps/api/js?key=" + apiKey + "&libraries=places";
