@@ -5,23 +5,24 @@ const useStyles = makeStyles((theme) => ({
         margin: 5,
     },
     card: {
-        padding: 10,
+        // padding: 10,
     },
     boxImage: {
         // height: 30,
         width: '100%',
     },
     subBoxImage: {
+        position: 'relative',
         margin: '40px 10px 40px 10px',
-        textAlign: 'center',
         padding: 10,
         height: 250,
         width: 300,
         backgroundColor: '#d4d1d1',
     },
     subBoxImageText: {
-        bottom: '50%',
-        textAlign: "center",
+        position: 'absolute',
+        top: '50%',
+        left: '30%',
     }
 }))
 

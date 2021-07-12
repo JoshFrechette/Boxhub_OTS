@@ -81,7 +81,9 @@ const OrderCard = ({ order }) => {
         key={id}
       >
         <Paper elevation={2} className={classes.card}>
-          <Typography>ID: {id}</Typography>
+          <Grid xs={12} style={{ paddingTop: 20, paddingLeft: 20 }}>
+            <Typography>ID: {id}</Typography>
+          </Grid>
           <Grid container item xs={12}>
             {picURLValid ? (
               <img
@@ -103,7 +105,7 @@ const OrderCard = ({ order }) => {
             <Typography variant='body2'> SKU: {sku}</Typography>
             <Typography variant='body2'>Created: {created}</Typography>
               </Grid>
-            <Grid container item display='flex' xs={12} justifyContent='center' style={{ marginTop: 10 }}>
+            <Grid container item display='flex' xs={12} justifyContent='center' style={{ marginTop: 10, padding: 10 }}>
               <Button
                 variant='contained'
                 color='primary'
