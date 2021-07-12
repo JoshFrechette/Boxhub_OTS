@@ -13,8 +13,6 @@ import Geocode from "react-geocode";
 import dotenv from "dotenv";
 dotenv.config();
 
-
-
 const MapModal = () => {
   const { open, origin, destination } = useContext(MapContext);
   const [stateOpen, setStateOpen] = open;
@@ -56,7 +54,7 @@ const MapModal = () => {
   apiKey;
 
   function checkAddress(address) {
-    const regex = new RegExp('\d{1,5}\s\w.\s(\b\w*\b\s){1,2}\w*\.')
+    const regex = new RegExp(/\d{1,5}\s\w.\s(\b\w*\b\s){1,2}\w*\./)
     if (regex.test(address)) return address;
     else return false;
   }
@@ -110,7 +108,7 @@ const MapModal = () => {
     return () => {
       mounted = false;
     };
-  }, [open]);
+  }, [open, stateOrigin, stateDestination]);
 
   const closeModal = (e) => {
     e.preventDefault();
