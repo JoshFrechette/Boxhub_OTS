@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
     },
     subBoxImageText: {
         bottom: '50%',
+        textAlign: "center",
     }
 }))
 
